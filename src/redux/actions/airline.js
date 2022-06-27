@@ -4,9 +4,7 @@ import {
   GET_AIRLINES_FAILURE,
   GET_AIRLINES_REQUESTED
 } from './types';
-
 // import axios from 'axios';
-
 // export const getAirlines = () => {
 //   return dispatch => {
 //     dispatch(getAirlinesStarted());
@@ -20,24 +18,19 @@ import {
 //       });
 //   };
 // };
-
 // const getAirlinesSuccess = (airlines) => ({
 //   type: GET_AIRLINES_SUCCESS,
 //   payload: airlines
 // });
-
-
 // const getAirlinesFailure = (error) => ({
 //   type: GET_AIRLINES_FAILURE,
 //   payload: {
 //     error
 //   }
 // });
-
 // const getAirlinesStarted = () => ({
 //   type: GET_AIRLINES_STARTED
 // });
-
 export function getAirlines() {
   return {
     type: GET_AIRLINES_REQUESTED,

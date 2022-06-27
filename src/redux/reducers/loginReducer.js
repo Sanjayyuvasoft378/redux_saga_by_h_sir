@@ -1,15 +1,8 @@
-import {
-  GET_LOGIN_STARTED,
-  GET_LOGIN_SUCCESS,
-  GET_LOGIN_FAILURE,
-  GET_LOGOUT_SUCCESS,
-} from '../actions/types';
-
-
+import {GET_LOGIN_STARTED,GET_LOGIN_SUCCESS,
+  GET_LOGIN_FAILURE,GET_LOGOUT_SUCCESS} from '../actions/types';
 const initState = {
   user: []
 }
-
 const LoginReducer = (state=initState,action) => {
   switch (action.type){
     case GET_LOGIN_STARTED:
@@ -23,7 +16,7 @@ const LoginReducer = (state=initState,action) => {
          ...state,
         loading: false,
         error: null,
-        user: action.user 
+        user: action.payload 
       }
     case GET_LOGIN_FAILURE:
       return {
@@ -31,7 +24,6 @@ const LoginReducer = (state=initState,action) => {
         loading: false,
         error: action.error
       };
-
     case GET_LOGOUT_SUCCESS:
       return {
         ...state,
@@ -39,12 +31,8 @@ const LoginReducer = (state=initState,action) => {
         user: null,
         error: null
       };
-            
-
-            
     default: 
       return state
   }
 }
-
 export default LoginReducer

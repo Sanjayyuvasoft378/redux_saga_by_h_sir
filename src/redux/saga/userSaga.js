@@ -1,6 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 import axios from 'axios';
-
 import {
   GET_LOGIN_SUCCESS,
   GET_LOGIN_FAILURE,
@@ -8,8 +7,6 @@ import {
   GET_LOGOUT_REQUESTED,
   GET_LOGOUT_SUCCESS,
 } from '../actions/types';
-
-
 function getApi(data) {
 	console.log(555, data)
     const body = {
@@ -24,7 +21,6 @@ function getApi(data) {
 	    data: body
   	});
 }
-
 function* fetchUser(action) {
    try {
       const response = yield call(getApi, action.payload);
@@ -34,18 +30,15 @@ function* fetchUser(action) {
       yield put({type: GET_LOGIN_FAILURE, message: e.message});
    }
 }
-
 function* logoutUser(action) {
    try {
       yield put({type: GET_LOGOUT_SUCCESS});
-   } catch (e) {
+   } catch (e) { 
       yield put({type: GET_LOGIN_FAILURE, error: e.message});
    }
 }
-
 function* userSaga() {
    yield takeEvery(GET_LOGIN_REQUESTED, fetchUser);
    yield takeEvery(GET_LOGOUT_REQUESTED, logoutUser);
 }
-
 export default userSaga;

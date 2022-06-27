@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { getAirlines } from '../redux/actions/airline'
 import { Link } from 'react-router-dom';
-
-
 const Dashboard = () => {
-  
   const loading = useSelector(state => state.airlines.loading)
   const error =  useSelector(state => state.airlines.error)
   const airlines = useSelector(state => state.airlines.airlines)
   const dispatch = useDispatch()
-
   useEffect(() => {
       dispatch(getAirlines())
   }, [dispatch])
-
   return(
      <div>
      	<h1>Dashboard11</h1>
@@ -34,7 +29,6 @@ const Dashboard = () => {
         )
       })
       }
-      
      </div>
   	)
 }
